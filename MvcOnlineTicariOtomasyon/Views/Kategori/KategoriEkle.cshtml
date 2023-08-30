@@ -1,0 +1,25 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Kategori
+
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-list-ul"></i> Kategori Ekleme Sayfası</div>
+            <div class="card-body">
+                <form method="post" class="forms-sample">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Kategori Adı : </span>
+                        </div>
+                        <input type="text" name="KategoriAd" class="form-control" placeholder="Kategori adını giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary me-2 col-12">Yeni Kategori Ekle!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

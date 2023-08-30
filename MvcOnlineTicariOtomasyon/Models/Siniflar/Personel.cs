@@ -26,7 +26,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
 
         public Departman Departman { get; set; }
 
-        public virtual SatisHareket SatisHareket { get; set; }
+        public ICollection<SatisHareket> SatisHareketler { get; set; }
 
     }
 }
