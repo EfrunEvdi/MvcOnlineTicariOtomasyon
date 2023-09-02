@@ -1,0 +1,26 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Departman
+
+@{
+    ViewBag.Title = "DepartmanEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-arrows-alt"></i> Departman Ekleme Sayfası</div>
+            <div class="card-body">
+                <form method="post" class="forms-sample">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Departman Adı : </span>
+                        </div>
+                        <input type="text" name="DepartmanAd" class="form-control" placeholder="Departman adını giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary me-2 col-12">Yeni Departman Ekle!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

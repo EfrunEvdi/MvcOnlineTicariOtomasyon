@@ -32,7 +32,8 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
 
         public bool Durum { get; set; }
 
-        public Kategori Kategori { get; set; }
+        public int? KategoriID { get; set; }
+        public virtual Kategori Kategori { get; set; }
         public ICollection<SatisHareket> SatisHareketler { get; set; }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -30,6 +29,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.MainHeader = "Kategoriler";
             ViewBag.MainHeaderUrl = "/Kategori/Index";
             ViewBag.SubHeader = "Kategori Ekleme Sayfası";
+
             return View();
         }
 

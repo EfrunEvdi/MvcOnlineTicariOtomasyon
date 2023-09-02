@@ -1,0 +1,63 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Urun
+
+@{
+    ViewBag.Title = "UrunEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-table"></i> Ürün Ekleme Sayfası</div>
+            <div class="card-body">
+                <form method="post" class="forms-sample">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Ürün Kategorisi : </span>
+                        </div>
+                        @*<input type="text" name="KategoriID" class="form-control" placeholder="Ürün kategorisini giriniz." aria-describedby="basic-addon1">*@
+                        @Html.DropDownListFor(x => x.KategoriID, (List<SelectListItem>)ViewBag.kategoriAd, "Kategori Seçiniz.", new { @class = "form-control" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Ürün Adı : </span>
+                        </div>
+                        <input type="text" name="UrunAd" class="form-control" placeholder="Ürün adını giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Ürün Markası : </span>
+                        </div>
+                        <input type="text" name="Marka" class="form-control" placeholder="Ürün markasını giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Ürün Stoğu : </span>
+                        </div>
+                        <input type="text" name="Stok" class="form-control" placeholder="Ürün stoğunu giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Ürün Alış Fiyatı : </span>
+                        </div>
+                        <input type="text" name="AlisFiyat" class="form-control" placeholder="Ürün alış fiyatını giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Ürün Satış Fiyatı : </span>
+                        </div>
+                        <input type="text" name="SatisFiyat" class="form-control" placeholder="Ürün satış fiyatını giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Ürün Görseli : </span>
+                        </div>
+                        <input type="file" name="Gorsel" class="form-control" aria-describedby="basic-addon1">
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary me-2 col-12">Yeni Ürün Ekle!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

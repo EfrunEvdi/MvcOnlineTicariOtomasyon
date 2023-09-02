@@ -1,21 +1,23 @@
 ﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
-@model List<Kategori>
+@model List<Personel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "DepartmanDetay";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="row">
     <div class="col-xl-12">
         <div class="card mb-3">
-            <div class="card-header"><i class="fas fa-list-ul"></i> Kategoriler</div>
+            <div class="card-header"><i class="fas fa-arrows-alt"></i> @ViewBag.DepartmanIsmi Departmanı Detay Sayfası</div>
             <div class="card-body">
                 <table class="table table-hover">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Kategori Adı</th>
+                            <th>Personel Görseli</th>
+                            <th>Personel Adı</th>
+                            <th>Personel Soyadı</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -23,16 +25,17 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@item.KategoriID</td>
-                                <td>@item.KategoriAd</td>
+                                <td>@item.PersonelID</td>
+                                <td>@item.PersonelGorsel</td>
+                                <td>@item.PersonelAd</td>
+                                <td>@item.PersonelSoyad</td>
                                 <td class="text-right">
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fa fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="/Kategori/KategoriGuncelle/@item.KategoriID"><i class="fa fa-pen mx-0"></i> Güncelle</a>
-                                            <a class="dropdown-item" href="/Kategori/KategoriSil/@item.KategoriID"><i class="fa fa-trash mx-0"></i> Sil</a>
+                                            <a class="dropdown-item" href="/Departman/DepartmanPersonelSatis/@item.PersonelID"><i class="fa fa-clipboard mx-0"></i> Satışlar</a>
                                         </div>
                                     </div>
                                 </td>
@@ -40,7 +43,6 @@
                         }
                     </tbody>
                 </table>
-                <a href="/Kategori/KategoriEkle" class="btn btn-outline-primary col-12">Yeni Kategori Oluştur!</a>
             </div>
         </div>
     </div>
