@@ -1,0 +1,47 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Personel
+
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-arrows-alt"></i> Personel Ekleme Sayfası</div>
+            <div class="card-body">
+                <form method="post" class="forms-sample">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Personel Görseli : </span>
+                        </div>
+                        <input type="file" name="PersonelGorsel" class="form-control" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Personel Adı : </span>
+                        </div>
+                        <input type="text" name="PersonelAd" class="form-control" placeholder="Personel adını giriniz." aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Personel Soyadı : </span>
+                        </div>
+                        <input type="text" name="PersonelSoyad" class="form-control" placeholder="Personel soyadını giriniz." aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Personel Departmanı : </span>
+                        </div>
+                        @Html.DropDownListFor(x => x.DepartmanID, (List<SelectListItem>)ViewBag.departmanAd, "Departman Seçiniz.", new { @class = "form-control" })
+                    </div>
+
+                    <button type="submit" class="btn btn-outline-primary me-2 col-12">Yeni Personel Ekle!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

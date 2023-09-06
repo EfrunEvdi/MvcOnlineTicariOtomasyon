@@ -1,0 +1,44 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Cari
+
+@{
+    ViewBag.Title = "CariEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-list-ul"></i> Cari Ekleme Sayfası</div>
+            <div class="card-body">
+                <form method="post" class="forms-sample">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Ad : </span>
+                        </div>
+                        <input type="text" name="CariAd" class="form-control" placeholder="Cari adını giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Soyad : </span>
+                        </div>
+                        <input type="text" name="CariSoyad" class="form-control" placeholder="Cari adını giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Şehir : </span>
+                        </div>
+                        <input type="text" name="CariSehir" class="form-control" placeholder="Cari adını giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> E-Posta : </span>
+                        </div>
+                        <input type="text" name="CariMail" class="form-control" placeholder="Cari adını giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary me-2 col-12">Yeni Cari Ekle!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

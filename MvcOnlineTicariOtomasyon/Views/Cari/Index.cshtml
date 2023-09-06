@@ -1,0 +1,52 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<Cari>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-id-card"></i> Cariler</div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ad Soyad</th>
+                            <th>Şehir</th>
+                            <th>E-Posta</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.CariID</td>
+                                <td>@item.CariAd @item.CariSoyad</td>
+                                <td>@item.CariSehir</td>
+                                <td>@item.CariMail</td>
+                                <td class="text-right">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-icon-only text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" href="/Cari/CariSatisGecmisi/@item.CariID"><i class="fa fa-indent mx-0"></i> Satış Geçmişi</a>
+                                            <a class="dropdown-item" href="/Cari/CariGuncelle/@item.CariID"><i class="fa fa-pen mx-0"></i> Güncelle</a>
+                                            <a class="dropdown-item" href="/Cari/CariSil/@item.CariID"><i class="fa fa-trash mx-0"></i> Sil</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Cari/CariEkle" class="btn btn-outline-primary col-12">Yeni Cari Oluştur!</a>
+            </div>
+        </div>
+    </div>
+</div>

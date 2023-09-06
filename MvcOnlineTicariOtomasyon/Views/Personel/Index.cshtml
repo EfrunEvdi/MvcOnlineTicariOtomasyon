@@ -1,0 +1,51 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<Personel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-user"></i> Personeller</div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Görsel</th>
+                            <th>Ad Soyad</th>
+                            <th>Departman</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.PersonelID</td>
+                                <td>@item.PersonelGorsel</td>
+                                <td>@item.PersonelAd @item.PersonelSoyad</td>
+                                <td>@item.Departman.DepartmanAd</td>
+                                <td class="text-right">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-icon-only text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" href="/Departman/DepartmanPersonelSatis/@item.PersonelID"><i class="fa fa-th-list mx-0"></i> Detaylar</a>
+                                            <a class="dropdown-item" href="/Personel/PersonelGuncelle/@item.PersonelID"><i class="fa fa-pen mx-0"></i> Güncelle</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Personel/PersonelEkle" class="btn btn-outline-primary col-12">Yeni Personel Oluştur!</a>
+            </div>
+        </div>
+    </div>
+</div>

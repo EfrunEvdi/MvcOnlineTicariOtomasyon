@@ -72,7 +72,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public ActionResult UrunGuncelle(int id)
         {
             ViewBag.MainHeader = "Ürünler";
-            ViewBag.MainHeaderUrl = "/Ürün/Index";
+            ViewBag.MainHeaderUrl = "/Urun/Index";
             ViewBag.SubHeader = "Ürün Güncelleme Sayfası";
 
             var urun = context.Uruns.Find(id);
@@ -90,7 +90,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public ActionResult UrunGuncelle(Urun urun)
         {
             ViewBag.MainHeader = "Ürünler";
-            ViewBag.MainHeaderUrl = "/Ürün/Index";
+            ViewBag.MainHeaderUrl = "/Urun/Index";
             ViewBag.SubHeader = "Ürün Güncelleme Sayfası";
 
             var GUrun = context.Uruns.Find(urun.UrunID);
@@ -111,6 +111,12 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             GUrun.KategoriID = urun.KategoriID;
             context.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult UrunListesi(Urun urun)
+        {
+            var urunler = context.Uruns.Where(x => x.Durum == true).ToList();
+            return View(urunler);
         }
     }
 }

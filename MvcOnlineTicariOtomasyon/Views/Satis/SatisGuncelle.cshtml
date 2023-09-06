@@ -1,0 +1,57 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.SatisHareket
+
+@{
+    ViewBag.Title = "SatisGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-folder-open"></i> Satış Güncelleme Sayfası</div>
+            <div class="card-body">
+                <form method="post" class="forms-sample">
+                    @Html.HiddenFor(x => x.SatisID)
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Ürün Bilgisi : </span>
+                        </div>
+                        @Html.DropDownListFor(x => x.UrunID, (List<SelectListItem>)ViewBag.urunAd, "Ürün Seçiniz.", new { @class = "form-control" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Cari Bilgisi : </span>
+                        </div>
+                        @Html.DropDownListFor(x => x.CariID, (List<SelectListItem>)ViewBag.cariAd, "Cari Seçiniz.", new { @class = "form-control" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Personel Bilgisi : </span>
+                        </div>
+                        @Html.DropDownListFor(x => x.PersonelID, (List<SelectListItem>)ViewBag.personelAd, "Personel Seçiniz.", new { @class = "form-control" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Adet : </span>
+                        </div>
+                        @Html.TextBoxFor(x => x.Adet, new { @class = "form-control" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Fiyat : </span>
+                        </div>
+                        @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Toplam Tutar : </span>
+                        </div>
+                        @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control" })
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary me-2 col-12">Satışı Güncelle!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,72 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<SatisHareket>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-folder-open"></i> Satışlar</div>
+            <div class="card-body">
+                <table id="satis" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ürün Bilgisi</th>
+                            <th>Cari Bilgisi</th>
+                            <th>Personel Bilgisi</th>
+                            <th>Adet</th>
+                            <th>Fiyat</th>
+                            <th>Toplam Tutar</th>
+                            <th>Tarih</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.SatisID</td>
+                                <td>@item.Urun.UrunAd</td>
+                                <td>@item.Cari.CariAd @item.Cari.CariSoyad</td>
+                                <td>@item.Personel.PersonelAd @item.Personel.PersonelSoyad</td>
+                                <td>@item.Adet</td>
+                                <td>@item.Fiyat</td>
+                                <td>@item.ToplamTutar</td>
+                                <td>@(((DateTime)item.Tarih).ToString("dd MMMM yyyy"))</td>
+                                <td class="text-right">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-icon-only text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" href="/Satis/SatisDetay/@item.SatisID"><i class="fa fa-th-list mx-0"></i> Detaylar</a>
+                                            <a class="dropdown-item" href="/Satis/SatisGuncelle/@item.SatisID"><i class="fa fa-pen mx-0"></i> Güncelle</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Satis/SatisEkle" class="btn btn-outline-primary col-12">Yeni Satış Oluştur!</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#satis').dataTable({});
+</script>

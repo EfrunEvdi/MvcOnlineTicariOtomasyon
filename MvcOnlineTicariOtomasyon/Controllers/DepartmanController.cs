@@ -96,7 +96,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.SubHeader = "Personel Satış Listesi";
 
             var satislar = context.SatisHarekets.Where(x => x.PersonelID == id).ToList();
-            ViewBag.PersonelAdSoyadIsmi = context.Personels.Where(x => x.PersonelID == id).Select(x => x.PersonelAd + " " + x.PersonelSoyad).FirstOrDefault();
+            ViewBag.PersonelAdSoyad = context.Personels.Where(x => x.PersonelID == id).Select(x => x.PersonelAd + " " + x.PersonelSoyad).FirstOrDefault();
             return View(satislar);
         }
     }

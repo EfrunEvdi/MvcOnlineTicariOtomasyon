@@ -1,0 +1,46 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Cari
+
+@{
+    ViewBag.Title = "CariGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-list-ul"></i> Cari Güncelleme Sayfası</div>
+            <div class="card-body">
+                <form method="post" class="forms-sample">
+                    @Html.HiddenFor(x => x.CariID)
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Ad : </span>
+                        </div>
+                        @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(x => x.CariAd, "", new { @class = "text-danger" })
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Soyad : </span>
+                        </div>
+                        @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(x => x.CariSoyad, "", new { @class = "text-danger" })
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Şehir : </span>
+                        </div>
+                        @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> E-Posta : </span>
+                        </div>
+                        @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary me-2 col-12">Cariyi Güncelle!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
