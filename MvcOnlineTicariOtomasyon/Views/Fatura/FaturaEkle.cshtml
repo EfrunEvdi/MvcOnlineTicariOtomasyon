@@ -1,0 +1,67 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Fatura
+
+@{
+    ViewBag.Title = "FaturaEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-print"></i> Fatura Ekleme Sayfası</div>
+            <div class="card-body">
+                <form method="post" class="forms-sample">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Fatura Seri Numarası : </span>
+                        </div>
+                        <input type="text" name="FaturaSeriNo" class="form-control" placeholder="Fatura seri numarasını giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Fatura Sıra Numarası : </span>
+                        </div>
+                        <input type="text" name="FaturaSıraNo" class="form-control" placeholder="Fatura sıra numarasını giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Vergi Dairesi : </span>
+                        </div>
+                        <input type="text" name="VergiDairesi" class="form-control" placeholder="Vergi dairesini giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Tarih : </span>
+                        </div>
+                        <input type="date" name="Tarih" class="form-control" placeholder="Tarih bilgisi giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Saat : </span>
+                        </div>
+                        <input type="time" name="Saat" class="form-control" placeholder="Saat bilgisi giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Teslim Eden Bilgisi : </span>
+                        </div>
+                        <input type="text" name="TeslimEden" class="form-control" placeholder="Teslim eden bilgisini giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Teslim Alan Bilgisi : </span>
+                        </div>
+                        <input type="text" name="TeslimAlan" class="form-control" placeholder="Teslim alan bilgisini giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Toplam : </span>
+                        </div>
+                        <input type="text" name="Toplam" class="form-control" placeholder="Toplam fiyatı giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary me-2 col-12">Yeni Fatura Ekle!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

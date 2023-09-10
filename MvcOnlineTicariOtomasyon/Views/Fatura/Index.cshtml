@@ -1,0 +1,61 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<Fatura>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-print"></i> Faturalar</div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Seri Numarası</th>
+                            <th>Sıra Numarası</th>
+                            <th>Vergi Dairesi</th>
+                            <th>Tarih</th>
+                            <th>Saat</th>
+                            <th>Teslim Eden</th>
+                            <th>Teslim Alan</th>
+                            <th>Toplam</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.FaturaID</td>
+                                <td>@item.FaturaSeriNo</td>
+                                <td>@item.FaturaSıraNo</td>
+                                <td>@item.VergiDairesi</td>
+                                <td>@(((DateTime)item.Tarih).ToString("dd MMMM yyyy"))</td>
+                                <td>@item.Saat</td>
+                                <td>@item.TeslimEden</td>
+                                <td>@item.TeslimAlan</td>
+                                <td>@item.Toplam</td>
+                                <td class="text-right">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-icon-only text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" href="/Fatura/FaturaDetay/@item.FaturaID"><i class="fa fa-th-list mx-0"></i> Teslim Detayları</a>
+                                            <a class="dropdown-item" href="/Fatura/FaturaGuncelle/@item.FaturaID"><i class="fa fa-pen mx-0"></i> Güncelle</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Fatura/FaturaEkle" class="btn btn-outline-primary col-12">Yeni Fatura Oluştur!</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -19,6 +19,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
         public decimal BirimFiyat { get; set; }
         public decimal Tutar { get; set; }
 
+        public int FaturaID { get; set; }
         public Fatura Fatura { get; set; }
     }
 }

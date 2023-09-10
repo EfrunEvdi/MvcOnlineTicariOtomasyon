@@ -1,0 +1,43 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.FaturaKalem
+
+@{
+    ViewBag.Title = "FaturaKalemEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-print"></i> Fatura Kalem Ekleme Sayfası</div>
+            <div class="card-body">
+                <form method="post" class="forms-sample">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Açıklama : </span>
+                        </div>
+                        <input type="text" name="Aciklama" class="form-control" placeholder="Açıklama giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Miktar : </span>
+                        </div>
+                        <input type="text" name="Miktar" class="form-control" placeholder="Miktar bilgisini giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Birim Fiyat : </span>
+                        </div>
+                        <input type="text" name="BirimFiyat" class="form-control" placeholder="Birim fiyat bilgisini giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Tutar : </span>
+                        </div>
+                        <input type="text" name="Tutar" class="form-control" placeholder="Tutar bilgisi giriniz." aria-describedby="basic-addon1">
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary me-2 col-12">Yeni Fatura Kalem Ekle!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

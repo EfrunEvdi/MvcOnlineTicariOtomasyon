@@ -1,0 +1,68 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Fatura
+
+@{
+    ViewBag.Title = "FaturaGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-print"></i> Fatura Güncelleme Sayfası</div>
+            <div class="card-body">
+                <form method="post" class="forms-sample">
+                    @Html.HiddenFor(x => x.FaturaID)
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Fatura Seri Numarası : </span>
+                        </div>
+                        @Html.TextBoxFor(x => x.FaturaSeriNo, new { @class = "form-control" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Fatura Sıra Numarası : </span>
+                        </div>
+                        @Html.TextBoxFor(x => x.FaturaSıraNo, new { @class = "form-control" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Vergi Dairesi : </span>
+                        </div>
+                        @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Tarih : </span>
+                        </div>
+                        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", @type = "date" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Saat : </span>
+                        </div>
+                        @Html.TextBoxFor(x => x.Saat, new { @class = "form-control", @type = "time" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Teslim Eden Bilgisi : </span>
+                        </div>
+                        @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Teslim Alan Bilgisi : </span>
+                        </div>
+                        @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control" })
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> Toplam : </span>
+                        </div>
+                        @Html.TextBoxFor(x => x.Toplam, new { @class = "form-control" })
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary me-2 col-12">Faturayı Güncelle!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
