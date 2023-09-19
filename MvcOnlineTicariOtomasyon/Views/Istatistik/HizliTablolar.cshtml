@@ -1,0 +1,166 @@
+﻿﻿@model IEnumerable<MvcOnlineTicariOtomasyon.Models.Siniflar.SinifGrup>
+
+@{
+    ViewBag.Title = "HizliTablolar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<div class="wrapper">
+    <div class="container-fluid">
+        <div class="col-sm-6">
+            <h1>Hızlı Bakış Tabloları</h1>
+        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Kategori Tablosu</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th>Kategori Adı</th>
+                                        <th>Progress Bar</th>
+                                        <th style="width: 40px">Oran</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1.</td>
+                                        <td>Beyaz Eşya</td>
+                                        <td>
+                                            <div class="progress progress-xs">
+                                                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-danger">55%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2.</td>
+                                        <td>Küçük Ev Aletleri</td>
+                                        <td>
+                                            <div class="progress progress-xs">
+                                                <div class="progress-bar bg-warning" style="width: 70%"></div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-warning">70%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3.</td>
+                                        <td>Bilgisayar</td>
+                                        <td>
+                                            <div class="progress progress-xs progress-striped active">
+                                                <div class="progress-bar bg-primary" style="width: 30%"></div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-primary">30%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4.</td>
+                                        <td>Mobilya</td>
+                                        <td>
+                                            <div class="progress progress-xs progress-striped active">
+                                                <div class="progress-bar bg-success" style="width: 90%"></div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-success">90%</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Müşteri Şehir Tablosu</h3>
+                            <div class="card-tools">
+                            </div>
+                        </div>
+                        <div class="card-body p-0" style="margin-bottom: 43px">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th>Şehir</th>
+                                        <th>Progress Bar</th>
+                                        <th style="width: 40px">Adet</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{ int sirano = 0;}
+                                    @foreach (var x in Model)
+                                    {
+                                        <tr>
+
+                                            <td>@{sirano++;} @sirano</td>
+                                            <td>@x.Sehir</td>
+                                            <td>
+                                                @if (x.Sayi == 1)
+                                                {
+                                                    <div class="progress progress-xs">
+                                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                    </div>
+                                                }
+                                                @if (x.Sayi == 2)
+                                                {
+                                                    <div class="progress progress-xs">
+                                                        <div class="progress-bar bg-warning" style="width: 70%"></div>
+                                                    </div>
+                                                }
+                                                @if (x.Sayi == 3)
+                                                {
+                                                    <div class="progress progress-xs progress-striped active">
+                                                        <div class="progress-bar bg-success" style="width: 90%"></div>
+                                                    </div>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (x.Sayi == 1)
+                                                {
+                                                    <span class="badge bg-danger">@x.Sayi</span>
+                                                }
+                                                @if (x.Sayi == 2)
+                                                {
+                                                    <span class="badge bg-warning">@x.Sayi</span>
+                                                }
+                                                @if (x.Sayi == 3)
+                                                {
+                                                    <span class="badge bg-success">@x.Sayi</span>
+                                                }
+
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @Html.Action("Partial1", "Istatistik")
+                @Html.Action("Partial2", "Istatistik")
+            </div>
+
+            @Html.Action("Partial3", "Istatistik")
+            @Html.Action("Partial4", "Istatistik")
+        </div>
+    </section>
+</div>
+<aside class="control-sidebar control-sidebar-dark">
+</aside>
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../dist/js/adminlte.min.js"></script>
+<script src="../../dist/js/demo.js"></script>

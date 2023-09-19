@@ -77,5 +77,58 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.d16 = deger16;
             return View();
         }
+
+        public ActionResult HizliTablolar()
+        {
+            ViewBag.MainHeader = "Ana Sayfa";
+            ViewBag.MainHeaderUrl = "/Dashboard/Index";
+            ViewBag.SubHeader = "Basit Tablolar";
+
+            var sorgu = from x in context.Caris
+                        group x by x.CariSehir into g
+                        select new SinifGrup
+                        {
+                            Sehir = g.Key,
+                            Sayi = g.Count()
+
+                        };
+            return View(sorgu.ToList());
+        }
+
+        public PartialViewResult Partial1()
+        {
+            var sorgu2 = from x in context.Personels
+                         group x by x.Departman.DepartmanAd into g
+                         select new SinifGrup2
+                         {
+                             Departman = g.Key,
+                             Sayi = g.Count()
+                         };
+            return PartialView(sorgu2.ToList());
+        }
+
+        public PartialViewResult Partial2()
+        {
+            var sorgu = context.Caris.ToList();
+            return PartialView(sorgu);
+        }
+
+        public PartialViewResult Partial3()
+        {
+            var sorgu = context.Uruns.ToList();
+            return PartialView(sorgu);
+        }
+
+        public PartialViewResult Partial4()
+        {
+            var sorgu = from x in context.Uruns
+                        group x by x.Marka into g
+                        select new SinifGrup3
+                        {
+                            Marka = g.Key,
+                            Sayi = g.Count()
+                        };
+            return PartialView(sorgu.ToList());
+        }
     }
 }

@@ -75,7 +75,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
 
             ViewBag.departmanAd = departman;
-            
+
             var personel = context.Personels.Find(id);
             return View(personel);
         }
@@ -103,6 +103,16 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             GPersonel.DepartmanID = personel.DepartmanID;
             context.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult PersonelListesi()
+        {
+            ViewBag.MainHeader = "Ana Sayfa";
+            ViewBag.MainHeaderUrl = "/Dashboard/Index";
+            ViewBag.SubHeader = "Personel Listesi";
+
+            var degerler = context.Personels.ToList();
+            return View(degerler);
         }
     }
 }

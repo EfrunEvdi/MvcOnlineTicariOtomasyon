@@ -1,0 +1,135 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<Yapilacak>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/jqvmap/jqvmap.min.css">
+<link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+<link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+<link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.css">
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>@ViewBag.Deger1</h3>
+
+                        <p>Toplam Müşteri Sayısı</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>@ViewBag.Deger2</h3>
+
+                        <p>Toplam Ürün Sayısı</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3 class="text-light">@ViewBag.Deger3</h3>
+
+                        <p class="text-light">Toplam Personel Sayısı</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-right text-light"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>@ViewBag.Deger4</h3>
+
+                        <p>Toplam Kategori Sayısı</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <section class="col-lg-12 connectedSortable">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="ion ion-clipboard mr-1"></i>
+                            Yapılacak Listesi
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="todo-list" data-widget="todo-list">
+                            @foreach (var item in Model)
+                            {
+                                <li>
+                                    <span class="handle">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </span>
+                                    <div class="icheck-primary d-inline ml-2">
+                                        <input type="checkbox" value="" name="todo1" id="todoCheck1">
+                                        <label for="todoCheck1"></label>
+                                    </div>
+                                    <span class="text">@item.Baslik</span>
+                                    @if (item.Durum == true)
+                                    {
+                                        <small class="badge badge-success"><i class="far fa-clock"></i> Pasif</small>
+                                    }
+                                    else
+                                    {
+                                        <small class="badge badge-danger"><i class="far fa-clock"></i> Aktif</small>
+                                    }
+                                    <div class="tools">
+                                        <i class="fas fa-edit"></i>
+                                        <i class="fas fa-trash"></i>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="card-footer clearfix">
+                        <button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Yeni Öğe Ekle</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+
+<script src="~/AdminLTE-3.0.4/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="~/AdminLTE-3.0.4/plugins/chart.js/Chart.min.js"></script>
+<script src="~/AdminLTE-3.0.4/plugins/sparklines/sparkline.js"></script>
+<script src="~/AdminLTE-3.0.4/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="~/AdminLTE-3.0.4/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<script src="~/AdminLTE-3.0.4/plugins/jquery-knob/jquery.knob.min.js"></script>
+<script src="~/AdminLTE-3.0.4/plugins/moment/moment.min.js"></script>
+<script src="~/AdminLTE-3.0.4/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="~/AdminLTE-3.0.4/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="~/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="~/AdminLTE-3.0.4/dist/js/adminlte.js"></script>
+<script src="~/AdminLTE-3.0.4/dist/js/pages/dashboard.js"></script>
+<script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script> 
