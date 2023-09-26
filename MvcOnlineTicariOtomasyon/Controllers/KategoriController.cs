@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MvcOnlineTicariOtomasyon.Models.Siniflar;
+using PagedList;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
@@ -13,13 +14,13 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
         Context context = new Context();
 
-        public ActionResult Index()
+        public ActionResult Index(int sayfa = 1)
         {
             ViewBag.MainHeader = "Ana Sayfa";
             ViewBag.MainHeaderUrl = "/Dashboard/Index";
             ViewBag.SubHeader = "Kategoriler";
 
-            var degerler = context.Kategoris.ToList();
+            var degerler = context.Kategoris.ToList().ToPagedList(sayfa, 5);
             return View(degerler);
         }
 
